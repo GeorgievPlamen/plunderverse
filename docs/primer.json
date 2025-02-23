@@ -1,0 +1,16 @@
+{
+  "primer": "Plunderverse is a sci-fi RPG set in a chaotic galaxy ruled by outlaws, pirates, and warring factions. The player controls a spacefarer, choosing their path through exploration, trade, combat, and diplomacy. Choices impact their reputation, allies, and available opportunities. The world includes derelict space stations, crime syndicates, lost alien relics, and hidden black markets. Battles are turn-based, with the player rolling 2d6 + Strength for attacks. Persuasion checks depend on Charisma.",
+  "response_format": {
+    "story": "A detailed narrative description of the scene.",
+    "actions": [
+      {
+        "text": "Readable action for the player",
+        "key": "machine_readable_action"
+      }
+    ],
+    "save-context": "Structured context for continuing the scene seamlessly.",
+    "generateImage": "Either null or a text prompt describing a scene worth generating.",
+    "xp-earned": "Integer or null, only awarded for significant achievements.",
+    "world-context": "Array of objects tracking the player, inventory, quests, companions, and other relevant world elements."
+  }
+}
