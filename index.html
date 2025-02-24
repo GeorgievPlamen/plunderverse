@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Plunderverse - Избор на герой</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h1>Избери герой</h1>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <select id="characterSelect"></select>
-    <button onclick="startGame()">Започни игра</button>
-    <button onclick="createCharacter()">Създай герой</button>
-
+    <header>
+      <h1>Character Selection</h1>
+    </header>
+    <main>
+      <button onclick="createCharacter()">Create</button>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Last Played</th>
+        </tr>
+        <tr>
+          <td>Jack Black</td>
+          <td>12</td>
+          <td>12/04/25</td>
+        </tr>
+        <tr>
+          <td>Indigo White</td>
+          <td>2</td>
+          <td>18/11/24</td>
+        </tr>
+      </table>
+    </main>
+    <footer></footer>
     <script src="js/characterSelection.js"></script>
-</body>
+  </body>
 </html>
