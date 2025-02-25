@@ -1,101 +1,155 @@
 /* Основни настройки */
 body {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #0a0a0a;
-    color: #d4d4d4;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: "Orbitron", sans-serif;
+  background-color: #1a1a1a;
+  color: #d4d4d4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 /* Основно заглавие */
 h1 {
-    color: #00ccff;
-    text-shadow: 0 0 10px #00ccff;
+  color: #00ccff;
+  text-shadow: 0 0 10px #00ccff;
+  font-size: 50px;
 }
 
 /* Контейнери */
 #storyContainer {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 20px;
-    background: rgba(20, 20, 20, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.6;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0, 204, 255, 0.6);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 #actionsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 /* Бутони */
 button {
-    background-color: #00ccff;
-    color: #0a0a0a;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
-    animation: fadeIn 0.5s ease-in-out;
+  background-color: #e1dabd;
+  color: #0a0a0a;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: 0 0 2px rgba(0, 204, 255, 0.7);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#create-character {
+  background-color: #00ccff;
+  color: #0a0a0a;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: 0 0 2px rgba(0, 204, 255, 0.7);
+  animation: fadeIn 0.5s ease-in-out;
+  text-decoration: none;
+}
+
+#create-character:hover {
+  background-color: #0088cc;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 1);
 }
 
 button:hover {
-    background-color: #0088cc;
-    box-shadow: 0 0 20px rgba(0, 204, 255, 1);
+  background-color: #4ba4ba;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 1);
 }
 
 /* Изображения */
 #storyImage {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 #characterSelection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 select {
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    background-color: #222;
-    color: #00ccff;
-    border: 1px solid #00ccff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background-color: #222;
+  color: #00ccff;
+  border: 1px solid #00ccff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
 }
 
+td {
+  padding: 10px 20px;
+}
 
+table {
+  margin: 50px auto;
+}
+
+/* tr {
+  margin: 0 40px;
+} */
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  width: 400px;
+  margin: 30px auto;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  height: 25px;
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+}
 
 #actionsContainer button {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
 
 #storyText {
-    animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
-
