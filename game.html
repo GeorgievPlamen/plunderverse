@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head>
-    <meta charset="UTF-8">
-    <title>Plunderverse - Игра</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h1>Plunderverse</h1>
-    <div id="storyContainer">
-        <p id="storyText">Зареждане...</p>
-        <img id="storyImage" src="" style="display: none;">
-    </div>
-    <div id="actionsContainer"></div>
-    
-    <script src="js/game.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plunderverse</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Plunderverse</h1>
+    </header>
+    <main>
+      <section>
+        <p>Player name</p>
+        <p>Credits: 20000</p>
+        <p>Level: 12</p>
+      </section>
+      <section id="game-view">
+        <div id="img-container">
+          <img
+            src="./public/StartOption_stranded_lawless_planet.jpeg"
+            alt="stranded-planet"
+          />
+        </div>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            labore vitae eligendi blanditiis, eos modi et expedita distinctio
+            beatae praesentium doloremque dolorum! Similique, itaque. Quis autem
+            odio mollitia temporibus unde.
+          </p>
+        </div>
+        <div id="game-options">
+          <button>Fight the outlaws</button>
+          <button>Escape the planet</button>
+          <button>Attack</button>
+          <button>Run</button>
+        </div>
+      </section>
+    </main>
+    <script src="js/characterSelection.js"></script>
+  </body>
 </html>
