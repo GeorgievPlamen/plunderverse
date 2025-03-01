@@ -5,13 +5,12 @@ require_once("app/app.php");
 
 $view_bag = [
   'title' => 'Character Selection',
-  'view' => 'index'
+  'view' => 'index',
+  'script' => 'js/selectCharacter.js'
 ];
 
 // Load characters
 $characters = loadCharacters();
-
-require_once("./views/layout.view.php");
 
 function loadCharacters()
 {
@@ -23,5 +22,11 @@ function loadCharacters()
 
   $query = $db->query("SELECT * FROM characters");
 
-  return $query->fetchAll(PDO::FETCH_CLASS, 'Character');
+  $data = $query->fetchAll(PDO::FETCH_CLASS, 'Character');
+
+  $db = null;
+
+  return $data;
 }
+
+require_once("./views/layout.view.php");

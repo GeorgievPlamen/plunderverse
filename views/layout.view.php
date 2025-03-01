@@ -21,5 +21,7 @@
         ?>
     </main>
 </body>
+<script src=<?= $view_bag['script'] ?>>
+</script>
 
 </html>

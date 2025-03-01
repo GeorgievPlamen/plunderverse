@@ -15,3 +15,8 @@ function printError($msg)
 {
     echo '<p style="color: red">' . $msg . '</p>';
 }
+
+function redirect($url)
+{
+    header("Location: $url");
+}

@@ -43,4 +43,5 @@
         </div>
     </div>
     <button onclick="createCharacters">Create</button>
+
 </form>

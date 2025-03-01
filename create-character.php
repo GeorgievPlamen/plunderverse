@@ -16,9 +16,34 @@ if (isPost()) {
     $str = $_POST['strength'];
     $cha = $_POST['charisma'];
 
-    $stats = $vit + $str + $cha;
-
-    if ($stats > 5) {
+    if ($vit + $str + $cha > 5) {
         printError("You can have a maximum of 5 total attributes!");
+        return;
     }
+
+    $stats = json_encode([
+        'vitality' => $vit,
+        'strength' => $str,
+        'charisma' => $cha
+    ]);
+
+    $credits = 1000 + (500 * $cha);
+
+    $db = connect();
+
+    $smt = $db->prepare("INSERT INTO characters (name, ship, bio, stats, credits, lastUpdated) VALUES (:name, :ship, :bio, :stats, :credits, :lastUpdated)");
+
+    $smt->execute([
+        ':name' => $name,
+        ':ship' => $ship,
+        ':bio' => $bio,
+        ':stats' => $stats,
+        ':credits' => $credits,
+        ':lastUpdated' => date("Y/m/d")
+    ]);
+
+    $smt = null;
+    $db = null;
+
+    redirect("index.php");
 }
