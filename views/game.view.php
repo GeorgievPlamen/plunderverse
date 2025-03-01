@@ -1,26 +1,23 @@
 <section id="player-stats">
-    <p>Player name</p>
-    <p>Credits: 20000</p>
-    <p>Level: 12</p>
+    <p><?= $character->name ?></p>
+    <p>Credits: <?= $character->credits ?></p>
+    <p>Level: <?= $character->Level ?></p>
 </section>
 <section id="game-view">
     <div id="img-container">
         <img
-            src="./public/StartOption_stranded_lawless_planet.jpeg"
+            src="./public/<?= $scene->img ?>"
             alt="stranded-planet" />
     </div>
     <div id="story-text">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            labore vitae eligendi blanditiis, eos modi et expedita distinctio
-            beatae praesentium doloremque dolorum! Similique, itaque. Quis autem
-            odio mollitia temporibus unde.
+            <?= $scene->story ?>
         </p>
     </div>
     <div id="game-options">
-        <button id="option-button">Fight the outlaws outlaws outlaws</button>
-        <button id="option-button">Escape the planet</button>
-        <button id="option-button">Attack</button>
-        <button id="option-button">Run</button>
+        <button id="option-button"> <?= $scene->getActionText(0) ?></button>
+        <button id="option-button"> <?= $scene->getActionText(1) ?></button>
+        <button id="option-button"> <?= $scene->getActionText(2) ?></button>
+        <button id="option-button"> <?= $scene->getActionText(3) ?></button>
     </div>
 </section>

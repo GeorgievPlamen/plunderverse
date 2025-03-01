@@ -1,6 +1,5 @@
 <?php
 
-require_once("models/character.class.php");
 require_once("app/app.php");
 
 $view_bag = [
