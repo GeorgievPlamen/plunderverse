@@ -9,26 +9,17 @@
         <th>Level</th>
         <th>Last Played</th>
     </tr>
-    <tr>
-        <td>
-            <button>Continue with:</button>
-        </td>
-        <td>Jack Black</td>
-        <td>12</td>
-        <td>12/04/25</td>
-        <td>
-            <button>🗑️</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <button>Continue with:</button>
-        </td>
-        <td>Indigo White</td>
-        <td>2</td>
-        <td>18/11/24</td>
-        <td>
-            <button>🗑️</button>
-        </td>
-    </tr>
+    <?php foreach ($characters as $item) : ?>
+        <tr>
+            <td>
+                <button>Continue with:</button>
+            </td>
+            <td><?= $item->name ?></td>
+            <td><?= $item->Level ?></td>
+            <td><?= $item->lastUpdated ?></td>
+            <td>
+                <button>🗑️</button>
+            </td>
+        </tr>
+    <?php endforeach; ?>
 </table>
