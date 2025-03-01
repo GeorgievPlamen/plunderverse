@@ -1,5 +1,6 @@
 function startGame(id) {
   alert(`Player with id ${id} starting the game`);
+
   console.log(id);
 }
 

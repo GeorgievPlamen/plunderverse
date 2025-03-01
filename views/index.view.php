@@ -12,7 +12,7 @@
         <?php foreach ($characters as $item) : ?>
             <tr>
                 <td>
-                    <button class="continue-btn" data-id="<?= $item->id ?>">Continue with:</button>
+                    <a href="./game.php?id=<?= $item->id ?>">Continue with:</a>
                 </td>
                 <td><?= $item->name ?></td>
                 <td><?= $item->Level ?></td>

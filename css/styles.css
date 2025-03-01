@@ -133,6 +133,21 @@ textarea {
   border-radius: 10px;
 }
 
+a {
+  text-decoration: underline;
+  font-size: x-large;
+  color: whitesmoke;
+  border-radius: 10px;
+}
+
+a:hover {
+  color: #888;
+}
+
+a:active {
+  color: #555;
+}
+
 #actionsContainer button {
   width: 80%;
   margin: auto;
