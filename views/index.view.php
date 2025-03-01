@@ -18,7 +18,10 @@
                 <td><?= $item->Level ?></td>
                 <td><?= $item->lastUpdated ?></td>
                 <td>
-                    <button>🗑️</button>
+                    <form method="POST">
+                        <input type="number" name="id" id="id" value=<?= $item->id ?> hidden>
+                        <button type="submit">🗑️</button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>

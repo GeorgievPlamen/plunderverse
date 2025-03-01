@@ -29,4 +29,26 @@ function loadCharacters()
   return $data;
 }
 
+if (isPost()) {
+  $id = $_POST["id"];
+
+  if (!isset($id)) {
+    return;
+  }
+
+  $db = connect();
+
+  if ($db == null) {
+    return;
+  }
+
+  $smt = $db->prepare("DELETE FROM characters WHERE id=:id");
+
+  $smt->execute([
+    ':id' => $id
+  ]);
+
+  redirect("index.php");
+}
+
 require_once("./views/layout.view.php");

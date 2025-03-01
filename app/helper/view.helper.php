@@ -10,7 +10,6 @@ function isGet()
     return $_SERVER['REQUEST_METHOD'] === 'GET';
 }
 
-
 function printError($msg)
 {
     echo '<p style="color: red">' . $msg . '</p>';

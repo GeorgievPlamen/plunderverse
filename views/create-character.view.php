@@ -1,4 +1,4 @@
-<form method="POST">
+<form id="create-form" method="POST">
     <div>
         <label for="name">Name</label>
         <input
