@@ -194,3 +194,13 @@ img {
   margin: 0 auto;
   width: 800px;
 }
+
+#stat-input {
+  width: 100px;
+}
+
+#stats-input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}

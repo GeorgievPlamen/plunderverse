@@ -1,0 +1,26 @@
+<section id="player-stats">
+    <p>Player name</p>
+    <p>Credits: 20000</p>
+    <p>Level: 12</p>
+</section>
+<section id="game-view">
+    <div id="img-container">
+        <img
+            src="./public/StartOption_stranded_lawless_planet.jpeg"
+            alt="stranded-planet" />
+    </div>
+    <div id="story-text">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            labore vitae eligendi blanditiis, eos modi et expedita distinctio
+            beatae praesentium doloremque dolorum! Similique, itaque. Quis autem
+            odio mollitia temporibus unde.
+        </p>
+    </div>
+    <div id="game-options">
+        <button id="option-button">Fight the outlaws outlaws outlaws</button>
+        <button id="option-button">Escape the planet</button>
+        <button id="option-button">Attack</button>
+        <button id="option-button">Run</button>
+    </div>
+</section>
