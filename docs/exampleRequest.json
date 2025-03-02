@@ -1,0 +1,22 @@
+{
+  "previous_story": "The Pirate Warlord stumbles, his once-mighty presence crumbling. 'You… you think you’ve won?' he mutters, gripping his cutlass.",
+  "selected_action": "deliver_final_blow",
+  "save-context": {
+    "scene": "pirate_warlord_throne_final",
+    "past_choices": ["focus_warlord", "eliminate_bodyguards"]
+  },
+  "world-context": [
+    {
+      "item": "player",
+      "description": {
+        "name": "Kai Vos",
+        "level": 9,
+        "xp": "75/80",
+        "hp": "18/42",
+        "credits": 12000,
+        "stats": { "vitality": 7, "strength": 6, "charisma": 5 }
+      }
+    },
+    { "item": "ship_name", "description": "The Wayfarer" }
+  ]
+}

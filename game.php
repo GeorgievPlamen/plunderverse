@@ -16,17 +16,53 @@ $playerId = $_GET["id"];
 
 $character = loadCharacter($playerId);
 
-$scene = loadStartingScene();
+$scene = loadStory($character->id);
 
 require_once("./views/layout.view.php");
 
+if (isPost()) {
+    $response = file_get_contents(APP_PATH . 'docs/contentResponse.json');
 
+    $actionKey = $_POST["action_key"];
+    echo $actionKey;
+    echo $response;
+}
+
+function loadStory($characterId)
+{
+    $db = connect();
+
+    if ($db == null) {
+        return [];
+    }
+
+    $query = $db->query("SELECT * FROM story WHERE characterId=$characterId");
+
+    $data = $query->fetchAll(PDO::FETCH_CLASS, 'Story');
+
+    if ($data == null) {
+        $smt = $db->prepare("INSERT INTO story (characterId) VALUES (:characterId)");
+
+        $smt->execute([
+            'characterId' => $characterId
+        ]);
+
+        $smt = null;
+    }
+
+    $db = null;
+
+    if (!isset($data[0]->story)) {
+        return loadStartingScene();
+    }
+
+    return $data[0];
+}
 
 
 function loadCharacter($id)
 {
     $db = connect();
-
 
     if ($db == null) {
         return [];
