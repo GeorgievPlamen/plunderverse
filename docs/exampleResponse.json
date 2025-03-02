@@ -1,0 +1,32 @@
+{
+  "id": "chatcmpl-B6YjdxbRW6ep23BifJG1qf2mC8Cuu",
+  "object": "chat.completion",
+  "created": 1740903189,
+  "model": "gpt-4o-2024-08-06",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"story\":\"Your pulse races as the Nebukanezar limps its way through the debris-strewn void. The control panel flickers with error messages—engine integrity on a knife's edge, and life support strained to keep the ship habitable. Beyond the cracked viewport, the enemy warship cuts a menacing silhouette against the star-strewn backdrop, its weapon systems slowly pivoting in your direction. You weigh your options, knowing each choice could either spell your end or open up a slim path to survival. The comm panel crackles with static, the faint echo of warnings and insults from the enemy captain who clearly anticipated an easy victory. Your crew, barely conscious, await your decision with nervous glances.\",\"actions\":[{\"text\":\"Attempt a desperate escape using maneuvering thrusters\",\"key\":\"desperate_escape\"},{\"text\":\"Send a broadcast on all frequencies seeking mercy\",\"key\":\"hail_for_mercy\"},{\"text\":\"Prepare the remaining weapons for one last stand\",\"key\":\"last_stand\"}],\"save-context\":{\"scene\":\"space_battleship_aftermath\",\"past_choices\":[]},\"generateImage\":\"A battered spacecraft, the Nebukanezar, limps through a debris-strewn spacefield, its engines flickering erratically. In the distance, an imposing enemy battleship looms, weapons primed and ready.\",\"xp-earned\":null,\"world-context\":[{\"item\":\"player\",\"description\":{\"name\":\"Eli Drake\",\"level\":1,\"xp\":\"0/10\",\"hp\":\"14/14\",\"credits\":1500,\"stats\":{\"vitality\":2,\"strength\":1,\"charisma\":2}}},{\"item\":\"ship_name\",\"description\":\"Nebukanezar\"}]}",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 968,
+    "completion_tokens": 345,
+    "total_tokens": 1313,
+    "prompt_tokens_details": { "cached_tokens": 0, "audio_tokens": 0 },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_eb9dce56a8"
+}

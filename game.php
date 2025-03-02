@@ -20,9 +20,13 @@ $scene = loadStartingScene();
 
 require_once("./views/layout.view.php");
 
+
+
+
 function loadCharacter($id)
 {
     $db = connect();
+
 
     if ($db == null) {
         return [];
