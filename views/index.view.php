@@ -15,7 +15,7 @@
                     <a href="./game.php?id=<?= $item->id ?>">Continue with:</a>
                 </td>
                 <td><?= $item->name ?></td>
-                <td><?= $item->Level ?></td>
+                <td><?= $item->level ?></td>
                 <td><?= $item->lastUpdated ?></td>
                 <td>
                     <form method="POST">

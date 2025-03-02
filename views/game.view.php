@@ -1,13 +1,15 @@
 <section id="player-stats">
     <p><?= $character->name ?></p>
     <p>Credits: <?= $character->credits ?></p>
-    <p>Level: <?= $character->Level ?></p>
+    <p>Level: <?= $character->level ?></p>
+    <p>HP: <?= $character->hp ?></p>
+    <p>XP: <?= $character->xp ?></p>
 </section>
 <section id="game-view">
     <div id="img-container">
         <img
             src="./public/<?= $scene->img ?>"
-            alt="stranded-planet" />
+            alt="scene-img" />
     </div>
     <div id="story-text">
         <p>

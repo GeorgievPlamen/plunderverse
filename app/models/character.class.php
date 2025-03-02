@@ -8,9 +8,9 @@ class Character
     public $bio;
     public $stats;
     public $credits;
-    public $currentXp;
-    public $XpToLevel;
-    public $Level;
+    public $hp;
+    public $xp;
+    public $level;
     public $lastUpdated;
 
     public function print()
@@ -21,9 +21,9 @@ class Character
         echo $this->bio;
         echo $this->stats;
         echo $this->credits;
-        echo $this->currentXp;
-        echo $this->XpToLevel;
-        echo $this->Level;
+        echo $this->hp;
+        echo $this->xp;
+        echo $this->level;
         echo $this->lastUpdated;
     }
 }

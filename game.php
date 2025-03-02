@@ -21,12 +21,67 @@ $scene = loadStory($character->id);
 require_once("./views/layout.view.php");
 
 if (isPost()) {
-    $response = file_get_contents(APP_PATH . 'docs/contentResponse.json');
+    $responseJson = file_get_contents(APP_PATH . 'docs/contentResponse.json');
 
-    $actionKey = $_POST["action_key"];
-    echo $actionKey;
-    echo $response;
+    saveResponse($responseJson, $character->id);
 }
+
+function saveResponse($responseJson, $characterId)
+{
+    $response = json_decode($responseJson, true);
+
+    $story = parseStory($response);
+    $actions = parseActions($response);
+    $saveContext = parseSaveContext($response);
+    $generateImage = parseGenerateImage($response);
+    $xpEarned = parseXpEarned($response);
+    $worldContext = parseWorldContext($response);
+    $player = parsePlayer($worldContext);
+
+    $db = connect();
+
+    if ($db == null) {
+        return [];
+    }
+
+    $smt = $db->prepare("UPDATE story
+                         SET story = :story,
+                             actions = :actions,
+                             saveContext = :saveContext,
+                             generateImage = :generateImage,
+                             xpEarned = :xpEarned,
+                             worldContext = :worldContext
+                         WHERE characterId = :characterId");
+
+    $smt->execute([
+        ':story'         => $story,
+        ':actions'       => json_encode($actions),
+        ':saveContext'   => json_encode($saveContext),
+        ':generateImage' => $generateImage,
+        ':xpEarned'      => $xpEarned,
+        ':worldContext'  => json_encode($worldContext),
+        ':characterId'   => $characterId,
+    ]);
+
+    $smt = $db->prepare("UPDATE characters
+    SET credits = :credits,
+        level = :level,
+        hp = :hp,
+        xp = :xp
+    WHERE id = :characterId");
+
+    $smt->execute([
+        ':credits'         => $player['credits'],
+        ':level'       => $player['level'],
+        ':hp'   => $player['hp'],
+        ':xp' => $player['xp'],
+        ':characterId'   => $characterId,
+    ]);
+
+    $smt = null;
+    $db = null;
+}
+
 
 function loadStory($characterId)
 {
@@ -55,6 +110,8 @@ function loadStory($characterId)
     if (!isset($data[0]->story)) {
         return loadStartingScene();
     }
+
+    $data[0]->init();
 
     return $data[0];
 }

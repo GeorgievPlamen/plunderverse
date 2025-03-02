@@ -51,7 +51,7 @@ class Story
     public function init()
     {
         $this->scene = json_decode($this->saveContext, true)['scene'];
-        $this->img = 'poster.jpeg';
+        $this->img = 'StartOption_distress_signal_from_abandonded_ship.jpeg';
     }
 
     public function parseGmResponse($gmResponse)

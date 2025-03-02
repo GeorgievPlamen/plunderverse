@@ -12,8 +12,6 @@ $characters = loadCharacters();
 
 $response = file_get_contents("docs/contentResponse.json");
 
-parseGmResponse($response);
-
 function loadCharacters()
 {
   $db = connect();
