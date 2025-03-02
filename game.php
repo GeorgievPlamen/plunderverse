@@ -21,7 +21,18 @@ $scene = loadStory($character->id);
 require_once("./views/layout.view.php");
 
 if (isPost()) {
-    $responseJson = file_get_contents(APP_PATH . 'docs/contentResponse.json');
+    $actionKey = $_POST["action_key"];
+
+    if (!$scene instanceof Story) {
+        echo "Failed to load story";
+        return;
+    }
+
+    $msg = $scene->generateGmMsg($actionKey);
+
+    echo $msg;
+
+    $responseJson = queryGm($msg);
 
     saveResponse($responseJson, $character->id);
 }
@@ -80,6 +91,8 @@ function saveResponse($responseJson, $characterId)
 
     $smt = null;
     $db = null;
+
+    redirect("game.php?id=$characterId");
 }
 
 
@@ -94,16 +107,6 @@ function loadStory($characterId)
     $query = $db->query("SELECT * FROM story WHERE characterId=$characterId");
 
     $data = $query->fetchAll(PDO::FETCH_CLASS, 'Story');
-
-    if ($data == null) {
-        $smt = $db->prepare("INSERT INTO story (characterId) VALUES (:characterId)");
-
-        $smt->execute([
-            'characterId' => $characterId
-        ]);
-
-        $smt = null;
-    }
 
     $db = null;
 
@@ -136,6 +139,8 @@ function loadCharacter($id)
 
 function loadStartingScene()
 {
+    global $character;
+
     $randomNumber = rand(1, 100);
     $scene = 1;
 
@@ -161,7 +166,26 @@ function loadStartingScene()
 
     $data = $query->fetchAll(PDO::FETCH_CLASS, 'Scene');
 
+    $smt = $db->prepare("INSERT INTO story (story, actions, worldContext, characterId) VALUES (:story, :actions, :worldContext, :characterId)");
+
+    $worldContext = [
+        'item'  => 'player',
+        'description' => json_encode($character),
+    ];
+
+    $smt->execute([
+        ':story'         => $data[0]->story,
+        ':actions'       => $data[0]->actions,
+        ':worldContext'  => json_encode($worldContext),
+        ':characterId'   => $character->id,
+    ]);
+
+    $query = $db->query("SELECT * FROM story WHERE characterId=$character->id");
+
+    $finalData = $query->fetchAll(PDO::FETCH_CLASS, 'Story');
+
+    $smt = null;
     $db = null;
 
-    return $data[0];
+    return $finalData[0];
 }

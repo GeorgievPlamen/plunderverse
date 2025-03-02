@@ -54,37 +54,27 @@ class Story
         $this->img = 'StartOption_distress_signal_from_abandonded_ship.jpeg';
     }
 
-    public function parseGmResponse($gmResponse)
+    public function generateGmMsg($actionKey)
     {
-        $response = json_decode($gmResponse, true);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            echo 'Error: Failed to decode JSON: ' . json_last_error_msg();
-            return;
+        $saveContextArr = json_decode($this->saveContext, true);
+        if ($saveContextArr === null) {
+            $saveContextArr = [];
         }
 
-        $story = parseStory($response);
-        $this->story = $story;
+        $worldContextArr = json_decode($this->worldContext, true);
+        if ($worldContextArr === null) {
+            $worldContextArr = [];
+        }
 
-        $actions = parseActions($response);
-        $this->actions = $actions;
+        $selectedAction = $actionKey;
 
-        $saveContext = parseSaveContext($response);
-        $this->saveContext = $saveContext;
+        $msg = [
+            'previous_story'  => $this->story,
+            'selected_action' => $selectedAction,
+            'save-context'    => $saveContextArr,
+            'world-context'   => $worldContextArr,
+        ];
 
-        $this->scene = $saveContext['scene'];
-
-        $generateImage = parseGenerateImage($response);
-        $this->generateImage = $generateImage;
-
-        $xpEarned = parseXpEarned($response);
-        $this->xpEarned = $xpEarned;
-
-        $worldContext = parseWorldContext($response);
-        $this->worldContext = $worldContext;
-
-        $player = parsePlayer($worldContext);
-
-        print_r($player);
+        return json_encode($msg);
     }
 }
