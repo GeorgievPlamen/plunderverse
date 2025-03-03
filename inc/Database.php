@@ -1,2 +1,0 @@
-<?php
-// Data access here
